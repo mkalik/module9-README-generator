@@ -2,7 +2,6 @@
 const inquire = require('inquirer');
 const md = require('./utils/generateMarkdown.js');
 const file = require('fs');
-console.log(md);
 // TODO: Create an array of questions for user input
 // order of questions isnt that important
 const questions = [
@@ -16,7 +15,7 @@ const questions = [
         type: 'input',
         name: 'email',
         message: 'What is your email?',
-        default: 'none@nothing.com',
+        default: 'none',
     },
     {
         type: 'input',
@@ -34,7 +33,7 @@ const questions = [
         type: 'input',
         name: 'install',
         message: 'Enter required installations:',
-        default: 'npm i',
+        default: 'none',
     },
     {
         type: 'input',
@@ -52,7 +51,7 @@ const questions = [
         type: 'input',
         name: 'instructions',
         message: 'Enter some instructions for testing:',
-        default: 'node index.js',
+        default: '',
     },
     {
         type: 'list',
@@ -65,15 +64,35 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     let title = md.genMD(data);
-    let readme = `${title}\n${md.renBadge(data.license)}\n## Description:\n${
+    let toc = `[description](#desc)
+    \n[Installation](#1)
+    \n[Usage](#2)
+    \n[Credits](#3)
+    \n[License](#4)
+    \n[Contributing](#5)
+    \n[Tests](#6)
+    \n[Questions](#7)`;
+
+    let ghLink =
+        data.username == 'none'
+            ? ''
+            : `[github](https://github.com/${data.username})`;
+    let readme = `${title}\n${md.renBadge(data.license)}\n${toc}
+    \n# <a name='desc'></a>\n## 0.Description:\n${
         data.description
-    }\n## 1.Installation:\n${data.install}\n## 2.Usage:\n${
-        data.usage
-    }\n## 3.Credits:\n${data.username} | ${
+    }\n# <a name='1'></a>\n## 1.Installation:\n${
+        data.install
+    }\n# <a name='2'></a>\n## 2.Usage:\n${
+        data.info
+    }\n# <a name='3'></a>\n## 3.Credits:\n${data.username} | ${
         data.email
-    }\n## 4.License:\n${md.renLink(data.license)}\n## 5.How to contribute:\n${
+    }\n# <a name='4'></a>\n## 4.License:\n${md.renLink(
+        data.license
+    )}\n# <a name='5'></a>\n## 5.How to contribute:\n${
         data.rules
-    }\n## 6.Tests:\n${data.instructions}`;
+    }\n# <a name='6'></a>\n## 6.Tests:\n${
+        data.instructions
+    }\n# <a name='7'></a>\n## 7.Questions:\nPlease contact me here ${ghLink}`;
     file.writeFile(fileName, readme, function (err) {
         console.log(err);
         if (err) {
