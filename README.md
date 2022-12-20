@@ -1,20 +1,33 @@
-<CMDLINE-README>
 
-# Command line README generator
+    # 
 
-todo: add a screenshot and a video
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+    
+    ## Description:
 
-## 1.Installation:
+    okay
 
-Clone this repo or manually install the files
-(uses node version 16.*)
+    ## 1.Installation:
 
-## 2.Usage:
+    undefined
 
-Once files are cloned/installed, navigate to the dir containing the index.js file and run the command "node index.js".
+    ## 2.Usage:
 
-## 3.Credits:
+    undefined
 
-Some starter code from [here](https://github.com/coding-boot-camp/potential-enigma).
+    ## 3.Credits:
 
-Everything else done by Malik Kouyate(mkalik).
+    mkalik
+
+    ## 4.License:
+
+    https://opensource.org/licenses/MIT
+
+    ## 5.How to contribute:
+
+    none
+
+    ## 6.Tests:
+
+    undefined
+    
