@@ -82,9 +82,9 @@ function writeToFile(fileName, data) {
     )}\n## Table of Contents:\n${toc}
     \n# <a name='desc'></a>\n## 0.Description:\n${
         data.description
-    }\n# <a name='1'></a>\n## 1.Installation:\n ${
+    }\n# <a name='1'></a>\n## 1.Installation:\n    ${
         data.install
-    }\n# <a name='2'></a>\n## 2.Usage:\n ${
+    }\n# <a name='2'></a>\n## 2.Usage:\n    ${
         data.info
     }\n# <a name='3'></a>\n## 3.Credits:\n${data.username} | ${
         data.email
