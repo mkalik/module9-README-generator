@@ -42,6 +42,17 @@ const questions = [
         default: 'none',
     },
     {
+        type: 'confirm',
+        name: 'video',
+        message: 'would you like to link a video to demonstrate usage?',
+    },
+    {
+        type: 'input',
+        name: 'videoLink',
+        message: 'Please add a video link:',
+        when: (answers) => answers.video == true,
+    },
+    {
         type: 'input',
         name: 'rules',
         message: 'Enter some rules for contributions:',
@@ -77,6 +88,9 @@ function writeToFile(fileName, data) {
         data.username == 'none'
             ? ''
             : `[github](https://github.com/${data.username})`;
+    let usageSection = data.video
+        ? `${data.info}\n[usage video](${data.videoLink})`
+        : `${data.info}`;
     let readme = `${title}\n${md.renBadge(
         data.license
     )}\n## Table of Contents:\n${toc}
@@ -84,11 +98,9 @@ function writeToFile(fileName, data) {
         data.description
     }\n# <a name='1'></a>\n## 1.Installation:\n    ${
         data.install
-    }\n# <a name='2'></a>\n## 2.Usage:\n    ${
-        data.info
-    }\n# <a name='3'></a>\n## 3.Credits:\n${data.username} | ${
-        data.email
-    }\n# <a name='4'></a>\n## 4.License:\n${md.renLink(
+    }\n# <a name='2'></a>\n## 2.Usage:\n${usageSection}\n# <a name='3'></a>\n## 3.Credits:\n${
+        data.username
+    } | ${data.email}\n# <a name='4'></a>\n## 4.License:\n${md.renLink(
         data.license
     )}\n# <a name='5'></a>\n## 5.How to contribute:\n${
         data.rules
