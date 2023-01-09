@@ -62,7 +62,7 @@ const questions = [
         type: 'input',
         name: 'instructions',
         message: 'Enter some instructions for testing:',
-        default: '',
+        default: 'none',
     },
     {
         type: 'list',
@@ -108,7 +108,6 @@ function writeToFile(fileName, data) {
         data.instructions
     }\n# <a name='7'></a>\n## 7.Questions:\nPlease contact me here ${ghLink}`;
     file.writeFile(fileName, readme, function (err) {
-        console.log(err);
         if (err) {
             tryAgain();
         }
@@ -118,7 +117,7 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
     inquire.prompt(questions).then((answers) => {
-        console.log(answers);
+        // console.log(answers);
         writeToFile('README.md', answers);
     });
 }

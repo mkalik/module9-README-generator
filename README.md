@@ -1,4 +1,4 @@
-# COMMAND-LINE-README
+# readme generator
 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -21,13 +21,13 @@
     
 # <a name='desc'></a>
 ## 0.Description:
-a program that prompts a user with questions about their project and generates a readme for it
+generates a readme from the command line
 # <a name='1'></a>
 ## 1.Installation:
- npm install inquirer@8.2.4
+    npm i inquirer@8.2.4
 # <a name='2'></a>
 ## 2.Usage:
- node index.js
+invoke via node index.js in the directory containing index.js
 # <a name='3'></a>
 ## 3.Credits:
 mkalik | none
@@ -36,10 +36,10 @@ mkalik | none
 https://opensource.org/licenses/MIT
 # <a name='5'></a>
 ## 5.How to contribute:
-do what you please
+none
 # <a name='6'></a>
 ## 6.Tests:
-not much testing. Fairly small application.
+none
 # <a name='7'></a>
 ## 7.Questions:
 Please contact me here [github](https://github.com/mkalik)
